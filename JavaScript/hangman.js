@@ -1,8 +1,33 @@
 // JavaScript Document
 var userInput = "";
+var wrongGuessNum = 0;
 var wordBank = ["monkeys"];
+var correctGuesses = [];
+var wrongGuesses = [];
+var hiddenWord = "";
+var guessRight = false;
+
+//after word selection, create equal length string of dashes for document output.
+for (var i = 0; i < wordBank[0].length; i++){
+hiddenWord.charAt(i) = "-";
+}
+console.log(hiddenWord);
+
 
 document.onkeyup = function(event){
 	userInput = String.fromCharCode(event.keyCode).toLowerCase();
 	console.log("User chose the letter: " + userInput);
+	for (i = 0; i < wordBank[0].length; i++){
+		if (userInput === wordBank[0].charAt(i)){
+			hiddenWord.charAt(i) = userInput;
+			guessRight = true;
+		
+			}
+		else{
+			guessRight = false;
+		}
+	}
+	if (guessRight === false){
+		wrongGuesses.push = userInput;
+	}
 };
