@@ -22,6 +22,8 @@ document.onkeyup = function(event){
 		if (userInput === wordBank[0].charAt(i)){
 			hiddenWord[i] = userInput;
 			guessRight = true;
+			console.log("You guessed right. There is a(n) " + userInput + "at location " + hiddenWord[i]);
+			correctGuesses.push(userInput);
 		
 			}
 		else{
@@ -30,5 +32,7 @@ document.onkeyup = function(event){
 	}
 	if (guessRight === false){
 		wrongGuesses.push = userInput;
+		console.log("Sorry, there isn't a(n) " + userInput);
+		wrongGuessNum += 1;
 	}
 };
