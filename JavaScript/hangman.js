@@ -20,16 +20,16 @@ console.log(hiddenWord);
 document.onkeyup = function (event) {
 	userInput = String.fromCharCode(event.keyCode).toLowerCase();
 	console.log("User chose the letter: " + userInput);
-	for (i = 0; i < correctGuesses.length; i++) {
-		if (correctGuesses[i] === userInput) {
+	for (var j = 0; j < correctGuesses.length; j++) {
+		if (correctGuesses[j] === userInput) {
 			alert("You already guessed that letter; Try again");
 		} else {
-			for (i = 0; i < wordBank[0].length; i++) {
-				if (userInput === wordBank[0].charAt(i)) {
-					hiddenWord[i] = userInput;
+			for (var k = 0; k < wordBank[0].length; k++) {
+				if (userInput === wordBank[0].charAt(k)) {
+					hiddenWord[k] = userInput;
 					console.log(hiddenWord);
 					guessRight = true;
-					console.log("You guessed right. There is a(n) " + userInput + " at location " + i);
+					console.log("You guessed right. There is a(n) " + userInput + " at location " + k);
 					correctGuesses.push(userInput);
 				} else {
 					wrongCount += 1;
