@@ -1,7 +1,7 @@
 // JavaScript Document
-var userInput = "";
+var letterGuessed = "";
 var guessLeft = 7;
-var wordBank = ["blueberry", "cherry", "orange", "apple", "grape"];
+var wordBank = ["blueberry", "cherry", "orange", "apple", "grape", "watermelon", "dragonfruit", "papaya"];
 var correctGuesses = [""];
 var wrongGuesses = [];
 var hiddenWord = [];
@@ -22,7 +22,35 @@ function fillArray(arr) {
 	}
 }
 
+function getUserInput(){
+	document.onkeyup = function (event){
+		var input = String.fromCharCode(event.keyCode).toLowerCase();
+		return input;
+	}
+	
+}
+
+function rightLetter() {
+	console.log("You guessed a right letter.");
+}
+
+function wrongLetter() {
+	console.log("Sorry, not part of the word I'm thinking of.")
+}
+
+function restartGame(){
+	return true;
+}
+
+function quitGame(){
+	return false;
+}
+
 randomNum = getRandom(wordBank.length);
+
+
+letterGuessed = getUserInput();
+
 
 theWord = wordBank[randomNum];
 console.log("The word you're getting now is at index: " + randomNum);
@@ -81,4 +109,3 @@ document.onkeyup = function (event) {
 	}
 
 };
-
